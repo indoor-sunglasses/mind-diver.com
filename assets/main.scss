@@ -1,0 +1,63 @@
+﻿//
+// Variables
+//
+
+// Text.
+$font-line-height: 1.5;
+$font-size: 24px;
+
+$font-background-color: #000000;
+$font-color: #ffffff;
+
+// Layout.
+$content-width: 35em;
+
+//
+// Fonts
+//
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: url('/fonts/OpenSans-Regular.ttf');
+  font-display: fallback;
+}
+
+//
+// Rules
+//
+html, body {
+  height: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  line-height: $font-line-height;
+  background-color: $font-background-color;
+  color: $font-color;
+}
+
+main {
+  &.center {
+    padding-top: 0;
+    margin: 0 auto;
+    height: 100%;
+    max-width: $content-width;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+
+    .content {
+      text-align: center;
+      margin: 1em;
+      padding: 1em;
+      width: 100%;
+    }
+  }
+}
+
+h1 {
+  font-size: 2em;
+}

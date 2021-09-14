@@ -1,0 +1,25 @@
+disableHugoGeneratorInject: true
+disableKinds:
+  - taxonomy
+  - taxonomyTerm
+  - RSS
+  - sitemap
+
+languageCode: en-us
+baseURL: https://mind-diver.com
+
+markup:
+  highlight:
+    codeFences: false
+
+  goldmark:
+    renderer:
+      xHTML: true
+      unsafe: true
+
+params:
+  description: A surreal game about exploring minds of two lovers
+  author: Indoor Sunglasses
+  name: Mind Diver
+  images:
+    - logo.png
