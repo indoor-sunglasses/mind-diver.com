@@ -1,4 +1,4 @@
-# mind-diver.com [![Netlify Status](https://api.netlify.com/api/v1/badges/62418d54-a339-4d4d-807a-75039d95a2d9/deploy-status)](https://app.netlify.com/sites/flamboyant-pasteur-6b3716/deploys)
+# mind-diver.com [![Netlify Status](https://api.netlify.com/api/v1/badges/105acc00-d61b-4e35-98c9-94973c67a9e8/deploy-status)](https://app.netlify.com/sites/mind-diver/deploys)
 Landing page for Mind Diver.
 
 ## Prerequisites
