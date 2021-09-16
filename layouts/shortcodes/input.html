@@ -1,0 +1,8 @@
+﻿<label>{{- .Get "label" -}}
+  <input
+    type="{{ .Get "type" }}"
+    name="{{ .Get "name" }}"
+    placeholder="{{ .Get "placeholder" }}"
+    {{ with .Get "required" }}required="required"{{ end }}
+  />
+</label>

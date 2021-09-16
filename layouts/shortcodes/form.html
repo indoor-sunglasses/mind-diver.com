@@ -1,0 +1,12 @@
+﻿<form
+  name="{{ .Get "name" }}"
+  action="{{ .Get "action" }}"
+  method="POST"
+  data-netlify="true"
+  netlify-honeypot="friendly-field"
+>
+  <div class="bye">
+    <label>Hello there<input name="friendly-field"/></label>
+  </div>
+  {{ .Inner }}
+</form>

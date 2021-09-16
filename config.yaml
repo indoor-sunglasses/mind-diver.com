@@ -18,8 +18,8 @@ markup:
       unsafe: true
 
 params:
-  description: A surreal game about exploring minds of two lovers
+  description: A surreal mystery exploration game inside the minds of two lovers.
   author: Indoor Sunglasses
   name: Mind Diver
   images:
-    - logo.png
+    - /images/logo.png

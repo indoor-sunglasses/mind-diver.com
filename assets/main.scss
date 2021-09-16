@@ -3,14 +3,26 @@
 //
 
 // Text.
-$font-line-height: 1.5;
-$font-size: 24px;
+$line-height: 1.5;
+$font-size: 18px;
 
-$font-background-color: #000000;
-$font-color: #ffffff;
+// Colors.
+$color-white: #e7e7e7;
+$color-ocean: #001a29;
+$color-blue: #013886;
+$color-black: #101010;
 
 // Layout.
+$layout-medium: 769px;
+$layout-large: 1025px;
+
 $content-width: 35em;
+
+// Highlights.
+$highlight-brightness: 1.2;
+
+// Animations.
+$animation-transition: 100ms;
 
 //
 // Fonts
@@ -24,6 +36,19 @@ $content-width: 35em;
 }
 
 //
+// Mixins.
+//
+@mixin hover-animation() {
+  @media (hover: hover) {
+    transition: filter $animation-transition linear;
+
+    &:hover {
+      filter: brightness($highlight-brightness);
+    }
+  }
+}
+
+//
 // Rules
 //
 html, body {
@@ -34,12 +59,63 @@ html, body {
 
 body {
   font-family: 'Open Sans', sans-serif;
-  line-height: $font-line-height;
-  background-color: $font-background-color;
-  color: $font-color;
+  line-height: $line-height;
+  background-color: $color-ocean;
+  font-size: $font-size;
+  color: $color-white;
+}
+
+::selection {
+  color: $color-white;
+  background: $color-blue;
+}
+
+h1 {
+  text-transform: uppercase;
+  font-family: Georgia, serif;
+  font-weight: 400;
+}
+
+a {
+  color: $color-blue;
+
+  &:visited {
+    text-decoration: none;
+  }
 }
 
 main {
+  &.landing {
+    background: url(/images/background.png) no-repeat center top;
+    background-size: 100%;
+    min-height: 100vh;
+
+    @media only screen and (min-width: $layout-medium) {
+      background-position: center -30vw;
+    }
+
+    h1 {
+      margin-bottom: 80vmin;
+      text-align: center;
+      font-size: 2.5em;
+
+      @media only screen and (min-width: $layout-medium) {
+        margin-bottom: 60vw;
+        font-size: 3em;
+      }
+
+      @media only screen and (min-width: $layout-large) {
+        font-size: 5em;
+      }
+    }
+
+    .content {
+      max-width: 35em;
+      padding: 1em;
+      margin: 0 auto;
+    }
+  }
+
   &.center {
     padding-top: 0;
     margin: 0 auto;
@@ -50,6 +126,9 @@ main {
     display: flex;
 
     .content {
+      box-shadow: 0 0.3em 0.7em $color-black;
+      color: $color-black;
+      background-color: $color-white;
       text-align: center;
       margin: 1em;
       padding: 1em;
@@ -58,6 +137,55 @@ main {
   }
 }
 
-h1 {
-  font-size: 2em;
+form {
+  max-width: 60%;
+  margin: 0 auto;
+}
+
+button, input {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1em;
+  padding: 0.5em;
+  width: 100%;
+  border: 0;
+  margin-bottom: 1em;
+}
+
+button {
+  background-color: $color-blue;
+  cursor: pointer;
+  color: $color-white;
+
+  @include hover-animation();
+}
+
+input {
+  background-color: $color-white;
+  caret-color: $color-blue;
+  color: $color-black;
+  box-sizing: border-box;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.inline-group {
+  max-width: 60%;
+  margin-top: 2em;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+}
+
+.icon {
+  margin-right: 1em;
+  height: auto;
+  width: 3em;
+
+  @include hover-animation();
+}
+
+.bye {
+  display: none;
 }
