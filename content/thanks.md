@@ -1,6 +1,10 @@
 ﻿---
 layout: plain
-title: Thanks
+title: Thank you!
 ---
 
-Your submission has been received!
+We need to confirm your email address.
+
+To complete the subscription process, please click the link in the email we just sent you.
+
+Also, make sure to check your **spam** folder!
