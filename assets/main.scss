@@ -196,11 +196,18 @@ input {
 }
 
 .icon {
-  margin-right: 1em;
   height: auto;
-  width: 3em;
+  width: 2em;
 
   @include hover-animation();
+
+  :not(:last-child) {
+    margin-right: 1em;
+  }
+
+  @media only screen and (min-width: $layout-medium) {
+    width: 3em;
+  }
 }
 
 .bye {
