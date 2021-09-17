@@ -2,36 +2,34 @@
 // Variables
 //
 
-// Text.
 $line-height: 1.5;
 $font-size: 18px;
 
-// Colors.
 $color-white: #e7e7e7;
 $color-ocean: #001a29;
 $color-blue: #013886;
 $color-black: #101010;
 
-// Layout.
 $layout-medium: 769px;
 $layout-large: 1025px;
 
 $content-width: 35em;
+$content-spacing: 3em;
 
-// Highlights.
-$highlight-brightness: 1.2;
+$highlight-brightness: 1.5;
 
-// Animations.
-$animation-transition: 100ms;
+$animation-highlight: 200ms;
+$animation-fade-in: 1s;
+$animation-fade-in-long: 1.5s;
 
 //
 // Fonts
 //
 @font-face {
-  font-family: 'Open Sans';
+  font-family: 'Libre Baskerville';
   font-style: normal;
   font-weight: 400;
-  src: url('/fonts/OpenSans-Regular.ttf');
+  src: url('/fonts/LibreBaskerville-Regular.ttf');
   font-display: fallback;
 }
 
@@ -40,12 +38,28 @@ $animation-transition: 100ms;
 //
 @mixin hover-animation() {
   @media (hover: hover) {
-    transition: filter $animation-transition linear;
+    transition: filter $animation-highlight linear;
 
     &:hover {
       filter: brightness($highlight-brightness);
     }
   }
+}
+
+@keyframes fade-in {
+  from {
+    transform: translateY(-10em);
+    opacity: 0;
+  }
+
+  to {
+    transform: none;
+    opacity: 1;
+  }
+}
+
+@mixin fade-in-animation($duration) {
+  animation: fade-in $duration;
 }
 
 //
@@ -58,7 +72,7 @@ html, body {
 }
 
 body {
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Libre Baskerville', serif;
   line-height: $line-height;
   background-color: $color-ocean;
   font-size: $font-size;
@@ -72,8 +86,9 @@ body {
 
 h1 {
   text-transform: uppercase;
-  font-family: Georgia, serif;
-  font-weight: 400;
+  font-weight: 500;
+  padding-top: 1rem;
+  margin-top: 0;
 }
 
 a {
@@ -86,30 +101,32 @@ a {
 
 main {
   &.landing {
-    background: url(/images/background.png) no-repeat center top;
+    background: url(/images/background.jpg) no-repeat center top;
     background-size: 100%;
     min-height: 100vh;
 
+    @include fade-in-animation($animation-fade-in);
+
     @media only screen and (min-width: $layout-medium) {
-      background-position: center -30vw;
+      background-position: center -10vw;
     }
 
     h1 {
-      margin-bottom: 80vmin;
+      @include fade-in-animation($animation-fade-in-long);
+
+      margin-bottom: 55vmin;
       text-align: center;
       font-size: 2.5em;
 
       @media only screen and (min-width: $layout-medium) {
-        margin-bottom: 60vw;
-        font-size: 3em;
-      }
-
-      @media only screen and (min-width: $layout-large) {
-        font-size: 5em;
+        margin-bottom: 55vw;
+        font-size: 6em;
       }
     }
 
     .content {
+      @include fade-in-animation($animation-fade-in-long);
+
       max-width: 35em;
       padding: 1em;
       margin: 0 auto;
@@ -138,15 +155,16 @@ main {
 }
 
 form {
-  max-width: 60%;
-  margin: 0 auto;
+  max-width: 50%;
+  margin: $content-spacing auto;
 }
 
 button, input {
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Libre Baskerville', serif;
   font-size: 1em;
   padding: 0.5em;
   width: 100%;
+  border-radius: 2px;
   border: 0;
   margin-bottom: 1em;
 }
@@ -171,11 +189,10 @@ input {
 }
 
 .inline-group {
-  max-width: 60%;
-  margin-top: 2em;
-  margin-left: auto;
-  margin-right: auto;
+  max-width: 50%;
+  margin: $content-spacing auto;
   display: flex;
+  justify-content: space-between;
 }
 
 .icon {
