@@ -1,6 +1,6 @@
 ﻿---
 layout: plain
-title: Thank you!
+title: Almost there!
 ---
 
 We need to confirm your email address.
