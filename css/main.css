@@ -1,5 +1,5 @@
 @font-face {
-  font-family: 'Raleway', sans-serif;
+  font-family: 'Montserrat', sans-serif;
 }
 
 * {
@@ -14,7 +14,7 @@ body {
 	height: 100%;
 	color: #fff;
 	background-color: #000;
-	font-family: 'Raleway', sans-serif;
+	font-family: 'Montserrat', sans-serif;
 }
 
 a {
@@ -80,7 +80,7 @@ a {
 }
 
 .people3 {
-	background: url('../img/people3.png') no-repeat center;
+	background: url(../img/people3.png) no-repeat center;
 	background-size: cover;
 	transform: translateZ(0) scale(1);
 	z-index: 6;
@@ -97,36 +97,8 @@ a {
 	z-index: 7;
 }
 
-/* might delete this */
-.hero-text h2 {
-	font-size: 1.25rem;
-	position: absolute;
-	left: 2.5rem;
-	top: 2.5rem;
-}
-
-.hero-text ul {
-	font-size: 0.75rem;
-	position: absolute;
-	right: 2.5rem;
-	top: 2.5rem;
-}
-
-.hero-text ul li {
-	margin-left: 2.5rem;
-	list-style-type: none;
-	float: left;
-	visibility: hidden;
-}
-
-.hero-text ul li:nth-of-type(3) {
-	visibility: visible;
-}
-/* might delete this */
-
-
-
 .info-container {
+	position: relative;
 	background: #000;
 	transform: translateZ(0) scale(1);
 	text-align: center;
@@ -136,7 +108,7 @@ a {
 	justify-content: center;
 	align-items: center;
 	text-align: center;
-	height: 600px;
+	height: 65%;
 }
 
 .info-container h2,
@@ -144,10 +116,15 @@ a {
 	margin-bottom: 1rem;
 }
 
+.responsive-iframe {
+	width: 900px;
+	height: 506px;
+}
+
 .video-box {
     text-align: left;
     margin: 0px auto 10px;
-    width: 700px;
+    width: 70%;
 }
 
 .text-box {
@@ -155,17 +132,18 @@ a {
     color: rgb(255, 255, 255);
     font-size: 22px;
     margin: 0px auto 10px;
-    width: 700px;
+    width: 70%;
     text-shadow: 0px 2px 6px rgb(200, 0, 0);
 }
 
 .container-contents {
 	position: relative;
+	background: #000;
 	z-index: 9;
 	margin: auto;
 	text-align: center;
-    width: 935px;
-	height: 200px;
+    width: 100%;
+	height: 23%;
 }
 
 /*
@@ -173,9 +151,8 @@ a {
 */
 
 .md-button {
-    position: initial;
+    position: relative;
 	display: inline-block;
-    right: 200px;
     padding: 22px;
     background-image: url(../img/big_button_bg.png);
     width: 504.5px;
@@ -195,7 +172,7 @@ a {
 }
 
 .md-button-small {
-    position: initial;
+    position: relative;
     display: inline-block;
     padding-top: 22px;
     font-size: 25px;
@@ -243,11 +220,6 @@ a {
 		align-items: center;
 		text-align: left;
 	}
-
-	.info-container img {
-		justify-self: end;
-		width: 75%;
-	}
 }
 
 @media (min-width: 1126px) {
@@ -267,6 +239,7 @@ a {
 */
 
 .image-grid {
+	background: #000;
 	--gap: 16px;
 	--num-cols: 4;
 	--row-height: 300px;
@@ -278,7 +251,7 @@ a {
 	grid-template-columns: repeat(var(--num-cols), 1fr);
 	grid-auto-rows: var(--row-height);
 	gap: var(--gap);
-	opacity: 0.8;
+	opacity: 0.99;
 }
 
 .image-grid > img {
@@ -303,5 +276,10 @@ a {
 	.image-grid {
 		--num-cols: 2;
 		--row-height: 200px;
+	}
+	
+	.responsive-iframe {
+		width: 335px;
+		height: 206px;
 	}
 }
