@@ -1,2 +1,0 @@
-{{ $ext := not (strings.HasPrefix .Destination "/") }}
-<a href="{{ .Destination | safeURL }}"{{ with .Title }} title="{{ . }}"{{ end }}{{ with $ext }} target="_blank"{{ end }}{{ with $ext }} rel="noreferrer"{{ end }}>{{ .Text }}</a>
