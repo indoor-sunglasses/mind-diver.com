@@ -154,32 +154,42 @@ a {
     position: relative;
 	display: inline-block;
     padding: 22px;
-    background-image: url(../img/big_button_bg.png);
+    background-image: url(../img/big_button.png);
     width: 504.5px;
     height: 83.5px;
     background-size: 100%;
     background-repeat: no-repeat;
-    text-shadow: 0px 4px rgba(200, 0, 0, 0.171);
     transition: transform 256ms, text-shadow 256ms;
-    font-size: 32px;
-    color: rgb(6, 66, 158);
+    font-size: 35px;
+    color: rgb(255, 255, 255);
     text-decoration: none;
 }
     
 .md-button:hover {
     transform: scale(105%, 105%);
-    text-shadow: 0px 7px rgba(200, 0, 0, 0.171);
+    text-shadow: 0px 7px rgba(158, 6, 6, 0.6);
 }
 
-.md-button-small {
+.md-button-small-blue {
     position: relative;
     display: inline-block;
-    padding-top: 22px;
-    font-size: 25px;
-    background-image: url(../img/small_button_bg_temp.png);
+    padding-top: 18px;
+    font-size: 30px;
+    background-image: url(../img/small_button_pink.png);
     width: 373px;
     height: 72px;
-    color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
+}
+
+.md-button-small-pink {
+    position: relative;
+    display: inline-block;
+    padding-top: 18px;
+    font-size: 30px;
+    background-image: url(../img/small_button_blue.png);
+    width: 373px;
+    height: 72px;
+    color: rgb(255, 255, 255);
 }
 
 /*
