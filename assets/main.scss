@@ -1,4 +1,8 @@
-﻿//
+﻿// imports
+@import "parallax";
+@import "fixed_image";
+
+//
 // Variables
 //
 
@@ -7,6 +11,7 @@ $font-size: 18px;
 
 $color-white: #e7e7e7;
 $color-ocean: #001a29;
+$color-capsule-background: #161417;
 $color-blue: #013886;
 $color-black: #101010;
 
@@ -74,7 +79,7 @@ html, body {
 body {
   font-family: 'Libre Baskerville', serif;
   line-height: $line-height;
-  background-color: $color-ocean;
+  background-color: $color-capsule-background;
   font-size: $font-size;
   color: $color-white;
 }
@@ -101,7 +106,9 @@ a {
 
 main {
   &.landing {
-    background: url(/images/background.jpg) no-repeat center top;
+    // background: url(/images/background.jpg) no-repeat center top;
+    // background-image: url(/images/Faces.png);
+    // background: url(/images/Faces.png) no-repeat center top;
     background-size: 100%;
     min-height: 100vh;
 
@@ -130,6 +137,11 @@ main {
       max-width: 35em;
       padding: 1em;
       margin: 0 auto;
+      z-index: 2;
+    }
+
+    .p {
+      z-index: 10;
     }
   }
 
@@ -213,3 +225,4 @@ input {
 .bye {
   display: none;
 }
+

@@ -1,0 +1,19 @@
+
+<div class="parallax">
+  <div class="parallax-background" style="background-image: url('{{ .Params.background_image}}')"></div>
+
+ 
+  <div class="parallax-content"> 
+    <!-- Your content here -->
+  </div>
+</div>
+
+
+  <script>
+        window.addEventListener('scroll', function() {
+      var parallax = document.querySelector('.parallax');
+      var scrolled = window.pageYOffset;
+      parallax.style.transform = 'translateY(' + (scrolled * .5) + 'px)';
+    });
+
+  </script>

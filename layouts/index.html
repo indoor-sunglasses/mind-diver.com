@@ -1,8 +1,11 @@
 ﻿{{ define "body" }}
-  <main class="landing">
-    <h1>{{ .Title }}</h1>
-    <div class="content">
-      {{ .Content }}
+{{ partial "fixed_image.html" .}}
+{{ partial "parallax.html" .}}
+<main class="landing">
+  <!-- <h1>{{ .Title }}</h1> -->
+  
+  <div class="content">
+    {{ .Content }}
     </div>
   </main>
 {{ end }}
