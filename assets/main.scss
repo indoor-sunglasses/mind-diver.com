@@ -2,6 +2,7 @@
 @import "parallax";
 @import "fixed_image_diver";
 @import "fixed_image_md-logo";
+@import "game_description";
 
 //
 // Variables
@@ -9,6 +10,7 @@
 
 $line-height: 1.5;
 $font-size: 18px;
+$font-standard: "Monserrat";
 
 $color-white: #e7e7e7;
 $color-ocean: #001a29;
@@ -32,10 +34,10 @@ $animation-fade-in-long: 1.5s;
 // Fonts
 //
 @font-face {
-  font-family: 'Libre Baskerville';
+  font-family: 'Montserrat';
   font-style: normal;
   font-weight: 400;
-  src: url('/fonts/LibreBaskerville-Regular.ttf');
+  src: url('/fonts/Montserrat-Regular.ttf');
   font-display: fallback;
 }
 
@@ -78,7 +80,8 @@ html, body {
 }
 
 body {
-  font-family: 'Libre Baskerville', serif;
+  // font-family: 'Libre Baskerville', serif;
+  font-family: $font-standard, sans-serif;
   line-height: $line-height;
   background-color: $color-capsule-background;
   font-size: $font-size;
@@ -173,7 +176,7 @@ form {
 }
 
 button, input {
-  font-family: 'Libre Baskerville', serif;
+  font-family: $font-standard, sans-serif;
   font-size: 1em;
   padding: 0.5em;
   width: 100%;
