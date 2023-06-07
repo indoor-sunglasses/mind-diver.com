@@ -1,6 +1,7 @@
 ﻿// imports
 @import "parallax";
 @import "fixed_image_diver";
+@import "fixed_image_md-logo";
 
 //
 // Variables
@@ -18,8 +19,8 @@ $color-black: #101010;
 $layout-medium: 769px;
 $layout-large: 1025px;
 
-$content-width: 35em;
-$content-spacing: 3em;
+$content-width: 35rem;
+$content-spacing: 3rem;
 
 $highlight-brightness: 1.5;
 
