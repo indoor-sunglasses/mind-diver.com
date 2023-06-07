@@ -2,7 +2,8 @@
 title: Mind Diver
 background_image: images/Faces.png
 background_image_1: images/Diver.png
-fixed_image: images/Diver.png
+fixed_image_diver: images/Diver.png
+fixed_image_diver_width: "200em"
 ---
 
 
