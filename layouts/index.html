@@ -2,10 +2,12 @@
 {{ partial "fixed_image_md-logo.html" .}}
 {{ partial "fixed_image_diver.html" .}}
 {{ partial "parallax.html" .}}
+
 <main class="landing">
   <!-- <h1>{{ .Title }}</h1> -->
   <div class="content">
-    {{partial "game_description.html"}}
+    {{ partial "game_description.html"}}
+    {{ partial "awards.html" . }}
     {{ .Content }}
     </div>
   </main>

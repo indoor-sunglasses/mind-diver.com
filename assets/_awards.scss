@@ -1,0 +1,15 @@
+.awards {
+    display: flex;
+    // display: inline;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    align-content: space-around;
+  }
+  
+  .awards img {
+    max-width: 10rem;
+    height: auto;
+    margin: 5%;
+  }
+  

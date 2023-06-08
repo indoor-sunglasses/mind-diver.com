@@ -1,0 +1,16 @@
+<div class="awards">
+  <!-- when adding a new reward, remember to add it to the data file! data/awards.json -->
+
+
+    {{range .Site.Data.awards}}
+      {{if eq .link "none"}}
+      <!-- if the link in the json file is set to none, the image won't be a link -->
+      <img src="{{.file}}" alt="{{.name}}">
+      {{else}}
+      <!-- if the link value in the json file not none (ideally a link), the image will be a link -->
+      <a href="{{.link}}"><img src="{{.file}}" alt="{{.name}}"></a>
+      {{end}}
+    {{end}}
+
+  
+  </div>
