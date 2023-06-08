@@ -1,0 +1,12 @@
+<div class="screenshots">
+
+    {{range readDir "static/images/screenshots/"}}
+        <img src="images/Screenshots/{{.Name}}" alt="{{.Name}}">
+    {{end}}
+
+    <!-- {{range readDir "static/images/awards"}} -->
+        <!-- <img src="images/awards/{{.Name}}" alt="{{ .Name }}"> -->
+        <!-- {{readFile "static/images/awards/{{.Name}}"}} -->
+        <!-- {{.Name}} -->
+    <!-- {{end}} -->
+</div>

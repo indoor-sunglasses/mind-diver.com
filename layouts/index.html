@@ -5,9 +5,10 @@
 
 <main class="landing">
   <!-- <h1>{{ .Title }}</h1> -->
+  {{ partial "game_description.html"}}
+  {{ partial "awards.html" . }}
+  {{ partial "screenshots.html" (dict)}}
   <div class="content">
-    {{ partial "game_description.html"}}
-    {{ partial "awards.html" . }}
     {{ .Content }}
     </div>
   </main>

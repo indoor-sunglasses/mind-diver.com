@@ -1,16 +1,16 @@
-.awards {
+.screenshots {
     display: flex;
     // display: inline;
     flex-wrap: wrap;
     justify-content: space-around;
     align-items: center;
     align-content: space-around;
-    margin: 5vh;
+    margin: 1vw;
   }
   
-  .awards img {
-    max-width: 20rem;
+  .screenshots img {
+    max-width: 40rem;
     height: auto;
-    margin: 5%;
+    margin: 1%;
   }
   
