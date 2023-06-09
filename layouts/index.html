@@ -5,9 +5,11 @@
 
 <main class="landing">
   <!-- <h1>{{ .Title }}</h1> -->
+  {{ partial "carousel.html" (dict "context" . "items" "1" "height" "70" "unit" "%" "duration" "7000") }}
   {{ partial "game_description.html"}}
   {{ partial "awards.html" . }}
   {{ partial "screenshots.html" (dict)}}
+
   <div class="content">
     {{ .Content }}
     </div>
