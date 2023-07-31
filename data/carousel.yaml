@@ -1,9 +1,14 @@
 images: 
-  - image: /images/Screenshots/CM2_.png
-    # content_html: "1"
-  - image: /images/Screenshots/CM2_.png
-    # content_html: "2"
-  - image: /images/Screenshots/CM2_.png
-    # content_html: "3"
-  - image: /images/Screenshots/CM2_.png
-    # content_html: "4"
+  - image: /images/carousel/Fascinating place.png
+    content_html: "The Mind Ocean is a mysterious place that explores the inner sanctums of Linas mind.<br><br> 
+    Somewhere is the clue to Sebastian's fate, it's up to you to find it."
+  - image: /images/carousel/Detective_past.png
+    content_html: "Use your wits and tools to restore key moments in the past; Use those moments to solve the case.<br><br> 
+    What has happened to Sebastian?<br><br> 
+    You are the only hope."
+  - image: /images/carousel/tender_story.png
+    content_html: "A hard working, Slovak ex-pat in Copenhagen. A local urbanite bike mechanic. Everything's cycling perfectly.
+      <br><br>
+      Until...
+      <br><br>
+      Hear the tender story of Lina and Sebastian and the tragedy that lies beneath."

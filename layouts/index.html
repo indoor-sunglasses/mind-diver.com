@@ -1,11 +1,10 @@
 ﻿{{ define "body" }}
+{{ partial "carousel.html" (dict "context" . "items" "1" "height" "60" "unit" "%" "duration" "7000") }}
 {{ partial "fixed_image_md-logo.html" .}}
 {{ partial "fixed_image_diver.html" .}}
 {{ partial "parallax.html" .}}
 
 <main class="landing">
-  <!-- <h1>{{ .Title }}</h1> -->
-  {{ partial "carousel.html" (dict "context" . "items" "1" "height" "70" "unit" "%" "duration" "7000") }}
   {{ partial "game_description.html"}}
   {{ partial "awards.html" . }}
   {{ partial "screenshots.html" (dict)}}
