@@ -1,5 +1,4 @@
 ﻿{{ define "body" }}
-{{ partial "carousel.html" (dict "context" . "items" "1" "height" "60" "unit" "%" "duration" "7000") }}
 {{ partial "fixed_image_md-logo.html" .}}
 {{ partial "fixed_image_diver.html" .}}
 {{ partial "parallax.html" .}}
@@ -8,6 +7,8 @@
   {{ partial "game_description.html"}}
   {{ partial "awards.html" . }}
   {{ partial "screenshots.html" (dict)}}
+  {{ partial "carousel.html" (dict "context" . "items" "1" "height" "60" "unit" "%" "duration" "7000") }}
+  {{ partial "buyMe.html" .}}
 
   <div class="content">
     {{ .Content }}

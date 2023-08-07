@@ -1,0 +1,29 @@
+.buyMe {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color:rgba(255, 1, 1, 0.644);
+    margin-top: 5vh;
+}
+
+.buyMe .sites{
+    display: flex;
+    flex-direction: row;
+    // display: inline;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    align-content: space-around;
+    margin: 5vh;
+
+  }
+  
+  .buyMe img {
+    display: block;
+    max-width: 20rem;
+    // min-width: 15rem;
+    height: auto;
+    margin: 5%;
+  }
+  
