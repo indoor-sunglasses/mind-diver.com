@@ -34,13 +34,13 @@ _We are a small team of mystery lovers trying to combine the thrill of discovery
 _Be the first to get news about Mind Diver by subscribing to our newsletter here:_ -->
 
 
-{{< form name="subscribe" action="/thanks" >}}
+<!-- {{< form name="subscribe" action="/thanks" >}}
   {{< input type="email" name="email" placeholder="Your Email" required="true" >}}
 
   {{< button type="submit" >}}
     Subscribe
   {{< /button >}}
-{{< /form >}}
+{{< /form >}} -->
 
 <!-- Old inline group from original deployment -->
 <!-- {{< inline-group >}}
