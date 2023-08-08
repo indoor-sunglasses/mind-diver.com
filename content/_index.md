@@ -33,6 +33,7 @@ _We are a small team of mystery lovers trying to combine the thrill of discovery
 
 _Be the first to get news about Mind Diver by subscribing to our newsletter here:_ -->
 
+
 {{< form name="subscribe" action="/thanks" >}}
   {{< input type="email" name="email" placeholder="Your Email" required="true" >}}
 
@@ -41,7 +42,8 @@ _Be the first to get news about Mind Diver by subscribing to our newsletter here
   {{< /button >}}
 {{< /form >}}
 
-{{< inline-group >}}
+<!-- Old inline group from original deployment -->
+<!-- {{< inline-group >}}
   {{< icon-link
     href="https://twitter.com/MindDiverGame"
     name="twitter"
@@ -64,4 +66,4 @@ _Be the first to get news about Mind Diver by subscribing to our newsletter here
     title="Contact directly via e-mail"
     alt="GMail icon"
   >}}
-{{< /inline-group >}}
+{{< /inline-group >}} -->

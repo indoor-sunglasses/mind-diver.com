@@ -1,0 +1,33 @@
+{
+    "twitter": {
+        "name": "twitter",
+        "file": "icons/twitter.svg",
+        "link": "https://twitter.com/MindDiverGame",
+        "alt" : "twitter bird icon"
+    },
+    "youtube": {
+        "name": "YouTube",
+        "file": "icons/youtube.svg",
+        "link": "https://www.youtube.com/channel/UCAAX8tTik1zEcvYYpZMQBsg",
+        "alt" : "YouTube play button"
+    },
+    "instagram": {
+        "name": "Instagram",
+        "file": "icons/Instagram_Glyph_White.svg",
+        "link": "https://www.instagram.com/minddivergame/",
+        "alt" : "Instagram camera icon"
+    },
+    "facebook": {
+        "name": "Facebook",
+        "file": "icons/f_logo_RGB-White_1024.svg",
+        "link": "https://www.facebook.com/minddivergame",
+        "alt" : "facebook f icon"
+    },
+    "discord": {
+        "name": "Discord",
+        "file": "icons/discord-mark-white.svg",
+        "link": "https://discord.gg/49Wyz37C",
+        "alt" : "mind diver discord server"
+    }
+}
+

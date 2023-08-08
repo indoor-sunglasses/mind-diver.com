@@ -1,0 +1,15 @@
+<div class = "socials">
+    <h2>Follow Development on Our Socials!</h2>
+    <div class="socials-container">
+        {{range .Site.Data.socials}}
+        {{if eq .link "none"}}
+        <!-- if the link in the json file is set to none, the image won't be a link -->
+        <img src="{{.file}}" alt="{{.name}}">
+        {{else}}
+        <!-- if the link value in the json file not none (ideally a link), the image will be a link -->
+        <a href="{{.link}}"><img class="icon" src="{{.file}}" alt="{{.name}}"></a>
+        {{end}}
+        {{end}}
+    </div>
+
+</div>
