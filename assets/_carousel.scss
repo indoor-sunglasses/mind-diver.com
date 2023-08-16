@@ -96,6 +96,7 @@
     #c10_slide1 div{
         // slide 1's box/container
         display: flex;
+        align-items: center;
         width: 50%;
         left: 50%;
     }
@@ -108,12 +109,12 @@
     }
     
     #c10_slide2 div{
-        display: flex;
-        flex-direction: column;
+        // display: flex;
+        // flex-direction: column;
         justify-content: flex-end;
-        // align-items: flex-end;
+        align-items: center;
         margin-block-end: 10vh;
-        max-width: 95%;
+        // max-width: 100%;
         // font-weight: bold;
         text-align: center;
     }
