@@ -1,9 +1,14 @@
 .carousel {
     position: relative;
-    // max-width: 95%;
+    max-width: 95%;
     max-height: 70%;
     left: 50%;
     transform: translateX(-50%);
+
+    @media screen and (min-width:1000px) {
+        max-width: 80%;
+        max-height: 60%;
+    }
 
 }
 
@@ -59,15 +64,20 @@
 }
 
 .carousel .slide_content{
-    text-shadow: 3px 3px black;
+    text-shadow: 2px 2px black;
+
+    @media screen and (min-width:600px) {
+        font-size: 2.5vw;
+    }
 
     @media screen and (max-width:600px) {
         text-align: center;
         // max-height: 50%;
         max-width: 80%;
-        font-size: 0.8rem;
+        // font-size: 0.8rem;
+        font-size: 2.5vw;
         margin-block-start: 50px;
-        background-color: rgba(0, 0, 0, 0.534);
+        // background-color: rgba(0, 0, 0, 0.534);
         padding: 5px;
     }
 
@@ -75,7 +85,7 @@
         text-align: center;
         // max-height: 50%;
         max-width: 90%;
-        font-size: 0.7rem;
+        font-size: 3vw;
         
     }
 }
@@ -111,7 +121,7 @@
     #c10_slide2 div .slide_content{
         // slide 1's text box
         width: 90%;
-        margin-block-end: 5vh;
+        margin-block-end: 10vh;
         // font-weight: bold;
         // font-size: 2vw;
     }
@@ -134,13 +144,18 @@
 
 .carousel ol {
     position: absolute;
-    bottom: 15px;
+    // bottom: 15px;
+    bottom: 1vw;
     display: flex;
     justify-content: center;
     left: 50%;
     transform: translateX(-50%);
     z-index: 9;
     padding-inline-start: 0px;
+
+    @media screen and (max-width: 300px) {
+        display:none;
+    }
 }
 
 .carousel ol li {
@@ -155,6 +170,11 @@
     border: 2px solid white;
     background: transparent;
     border-radius: 100%;
+
+    @media screen and (max-width: 500px) {
+        height: 5px;
+        width: 5px;
+    }
 }
 
 .carousel ol li.selected a {
