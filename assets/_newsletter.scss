@@ -3,3 +3,12 @@
     flex-direction: column;
     align-items: center;
 }
+
+.newsletter h2 {
+ 
+    text-align: center;
+
+    @media screen and (max-width:300px) {
+         font-size: 1.5rem;
+    }
+  }

@@ -11,11 +11,20 @@
 .socials-container{
     display: flex;
     align-items: center;
-    background-color: rgba(255, 0, 0, 0.726);
+    background-color: rgba(158, 3, 3, 0.726);
     border-radius: 1rem;
     padding: 0.5rem;
 }
   
   .socials .icon {
     margin: 1vw;
+  }
+
+  .socials h2 {
+ 
+    text-align: center;
+
+    @media screen and (max-width:300px) {
+         font-size: 1.5rem;
+    }
   }
