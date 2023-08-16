@@ -12,5 +12,9 @@
     max-width: 20rem;
     height: auto;
     margin: 5%;
+
+    @media screen and (max-width:400px) {
+      max-width: 80vw;
+    }
   }
   
