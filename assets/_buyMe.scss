@@ -22,9 +22,12 @@
   
   .buyMe img {
     display: block;
-    max-width: 20rem;
+    max-width: 25vh;
     // min-width: 15rem;
     height: auto;
     margin: 5%;
   }
   
+  .buyMe h2 {
+    font-size: 4vh;
+  }
