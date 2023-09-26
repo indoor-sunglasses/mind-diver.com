@@ -1,6 +1,7 @@
 <div class="screenshots">
     <div class="screenshots-container">
-        {{range readDir "static/images/screenshots/"}}
+        {{range readDir "public/images/screenshots/"}}
+
             <img src="images/screenshots/{{.Name}}" alt="{{.Name}}">
         {{end}}
     </div>
@@ -10,3 +11,9 @@
         <!-- {{.Name}} -->
     <!-- {{end}} -->
 </div>
+
+<!-- https://stackoverflow.com/questions/48023746/hugo-server-not-rendering-images-from-static-folder -->
+<!-- 
+{{ range os.ReadDir "content" }}
+  {{ .Name }} → {{ .IsDir }}
+{{ end }} -->
