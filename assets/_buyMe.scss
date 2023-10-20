@@ -14,7 +14,8 @@
     // display: inline;
     flex-wrap: wrap;
     justify-content: space-around;
-    align-items: center;
+    justify-content: center;
+    align-items: flex-start;
     align-content: space-around;
     margin: 5vh;
 
@@ -24,13 +25,12 @@
     position: relative;
     overflow: hidden;
     width: 100%;
-    min-height: 20rem;
+    min-height: 20em;
     min-width: 50vw;  
     // max-width: 80vw;
     @media screen and (min-width: 1200px) {
       width: 80px;
       min-width: 30em;
-      max-width: 10px;
     }
     @media screen and (max-width: 800px) {
       min-width: 80vw;
@@ -58,7 +58,7 @@
 
 
   .buyMe a {
-    margin: 5vw;
+    margin: 2em;
   }
   
   .buyMe img {
