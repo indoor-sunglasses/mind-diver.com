@@ -10,6 +10,12 @@
     left: 50%;
     width: 100%;
     height: 100%;
+    // background-image: -webkit-image-set(url('{{ .Site.Data.facesImage.Faces.Src}}'));
+    background-image: url('{{ .Site.Data.facesImage.Faces.Src}}');
+    background-image: image-set(
+      url('{{ .Site.Data.facesImage.Faces.Webp_source}}') type("image/webp"),
+      url('{{ .Site.Data.facesImage.Faces.Img_source}}') type("image/jpg")
+    );
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;

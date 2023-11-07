@@ -1,0 +1,10 @@
+{
+    "Faces":{
+        "Name": "Faces Image",
+        "Width": "200vw",
+        "Alt": "A stylised image of two faces",
+        "Src": "images/Faces.png",
+        "Img_source": "images/Faces.png",
+        "Webp_source": "images/Faces.webp"
+    }
+}
