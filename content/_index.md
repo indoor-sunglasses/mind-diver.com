@@ -1,12 +1,6 @@
 ---
 title: Mind Diver
-esp_carousel_images:
-  - src: "/images/Screenshots/CM2_.png" 
-    alt: "Central 2"
-  - src: "/images/Screenshots/CM2_.png" 
-    alt: "Central 2"
-  - src: "/images/Screenshots/Giant_Regret.png" 
-    alt: "Giant Lina in Regret"
+
 ---
 
 <!-- 
