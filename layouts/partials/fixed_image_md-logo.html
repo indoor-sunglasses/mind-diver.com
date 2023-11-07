@@ -1,4 +1,11 @@
 <div class="fixed-image-md-logo">
-    <img src="images/md_logo.png" width= {{.Params.fixed_image_mdlogo_width}} alt="Static Image">
+    <picture>
+        <!-- <p>{{ .Site.Data.diverImage.Diver.Img_source }}</p> -->
+        <source type="image/webp" srcset={{.Site.Data.mdLogoFixedImage.MDLogo.Webp_source}}>
+        <source type="image/webp" srcset={{.Site.Data.mdLogoFixedImage.MDLogo.Img_source}}>
+        <img src={{.Site.Data.mdLogoFixedImage.MDLogo.Src}} width= {{ .Site.Data.mdLogoFixedImage.MDLogo.Width }} alt={{ .Site.Data.mdLogoFixedImage.MDLogo.Alt }}>
+    </picture>
+
+    <!-- <img src="images/md_logo.png" width= {{.Params.fixed_image_mdlogo_width}} alt="Static Image"> -->
     <!-- <img src="images/Library logo.png" width= "200" alt="Static Image"> -->
 </div>
