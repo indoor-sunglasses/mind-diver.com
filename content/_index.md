@@ -1,8 +1,6 @@
 ---
 title: Mind Diver
 background_image: images/Faces.png
-fixed_image_diver: images/Diver.png
-fixed_image_diver_width: "200vw"
 fixed_image_mdlogo_width: "100%"
 esp_carousel_images:
   - src: "/images/Screenshots/CM2_.png" 

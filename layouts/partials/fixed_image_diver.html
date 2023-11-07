@@ -1,3 +1,9 @@
 <div class="fixed-image-diver">
-    <img src={{ .Params.fixed_image_diver}} width= {{.Params.fixed_image_diver_width}} alt="Static Image">
+    <picture>
+        <!-- <p>{{ .Site.Data.diverImage.Diver.Img_source }}</p> -->
+        <source type="image/webp" srcset="images/Diver.webp">
+        <source type="image/png" srcset="images/Diver.jpg">
+        <img src={{ .Site.Data.diverImage.Diver.Src }} width= {{ .Site.Data.diverImage.Diver.Width }} alt={{ .Site.Data.diverImage.Diver.Alt }}>
+    </picture>
+
 </div>
