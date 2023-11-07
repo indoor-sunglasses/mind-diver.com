@@ -1,9 +1,9 @@
 <div class="fixed-image-diver">
     <picture>
         <!-- <p>{{ .Site.Data.diverImage.Diver.Img_source }}</p> -->
-        <source type="image/webp" srcset="images/Diver.webp">
-        <source type="image/png" srcset="images/Diver.jpg">
-        <img src={{ .Site.Data.diverImage.Diver.Src }} width= {{ .Site.Data.diverImage.Diver.Width }} alt={{ .Site.Data.diverImage.Diver.Alt }}>
+        <source type="image/webp" srcset={{.Site.Data.diverImage.Diver.WebpSource}}>
+        <source type="image/png" srcset={{.Site.Data.diverImage.Diver.ImgSource}}>
+        <img src={{.Site.Data.diverImage.Diver.Src}} width= {{.Site.Data.diverImage.Diver.Width}} alt={{.Site.Data.diverImage.Diver.Alt}}>
     </picture>
 
 </div>

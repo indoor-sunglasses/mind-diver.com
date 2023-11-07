@@ -3,8 +3,8 @@
         "Name": "Mind Diver Image",
         "Width": "200vw",
         "Alt": "Mind Diver image",
-        "Src": "images/diver.png",
-        "Img_source": "images/diver.png",
-        "Webp_source": "images/diver.webp"
+        "Src": "images/Diver.png",
+        "ImgSource": "images/Diver.png",
+        "WebpSource": "images/Diver.webp"
     }
 } 

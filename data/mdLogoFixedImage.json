@@ -4,7 +4,7 @@
         "Width": "100%",
         "Alt": "Mind Diver image",
         "Src": "images/md_logo.png",
-        "Img_source": "images/md_logo.png",
-        "Webp_source": "images/md_logo.webp"
+        "ImgSource": "images/md_logo.png",
+        "WebpSource": "images/md_logo.webp"
     }
 } 
