@@ -3,8 +3,9 @@
         "Name": "Mind Diver Image",
         "Width": "200vw",
         "Alt": "Mind Diver image",
-        "Src": "images/Diver.png",
-        "ImgSource": "images/Diver.png",
-        "WebpSource": "images/Diver.webp"
+        "Src": "images/Diver_343.png",
+        "ImgSource": "images/Diver_171.png 171w, images/Diver_343.png 343w, images/Diver_519.png 519w",
+        "WebpSource": "images/Diver_171.webp 171w, images/Diver_343.webp 343w, images/Diver_519.webp 519w",
+        "Sizes": "(max-width: 576px) 171px, (max-width: 768px) 343px, (min-width: 992px) 519px"
     }
 } 
