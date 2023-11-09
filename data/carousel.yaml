@@ -1,12 +1,17 @@
 images: 
   - image: /images/carousel/Fascinating_place.webp
-    webp: /images/carousel/Fascinating_place.webp
+    srcset: /images/carousel/Fascinating_place_224.webp 224w, /images/carousel/Fascinating_place_300.webp 300w, /images/carousel/Fascinating_place_460.webp 460w, /images/carousel/Fascinating_place_614.webp 614w, /images/carousel/Fascinating_place_793.webp 793w, /images/carousel/Fascinating_place_960.webp 960w, /images/carousel/Fascinating_place.webp 1400w
+    sizes: "(max-width: 280px) 224px, (max-width: 375px) 300px, (max-width: 576px) 460px, (max-width: 768px) 614px, (max-width: 992px) 793px, (max-width: 1200px) 960px, (min-width: 1200px) 1400px"
     content_html: "The Mind Ocean is a mysterious place that explores the inner sanctums of Linas mind.<br><br> 
     Somewhere is the clue to Sebastian's fate, it's up to you to find it."
   - image: /images/carousel/Detective_past.webp
-    webp: /images/carousel/Detective_past.webp
+    srcset: /images/carousel/Detective_past.webp 224w, /images/carousel/Detective_past_300.webp 300w, /images/carousel/Detective_past_460.webp 460w, /images/carousel/Detective_past_614.webp 614w, /images/carousel/Detective_past_793.webp 793w, /images/carousel/Detective_past_960.webp 960w, /images/carousel/Detective_past.webp 1400w
+    sizes: "(max-width: 280px) 224px, (max-width: 375px) 300px, (max-width: 576px) 460px, (max-width: 768px) 614px, (max-width: 992px) 793px, (max-width: 1200px) 960px, (min-width: 1200px) 1400px"
     content_html: "Use your wits and tools to restore key moments in the past; Use those moments to solve the case.<br><br> 
     What has happened to Sebastian?<br>"
   - image: /images/carousel/tender_story.webp
-    webp: /images/carousel/tender_story.webp
+    srcset: /images/carousel/tender_story_224.webp 224w, /images/carousel/tender_story_300.webp 300w, /images/carousel/tender_story_460.webp 460w, /images/carousel/tender_story_614.webp 614w, /images/carousel/tender_story_793.webp 793w, /images/carousel/tender_story_960.webp 960w, /images/carousel/tender_story.webp 1400w
+    sizes: "(max-width: 280px) 224px, (max-width: 375px) 300px, (max-width: 576px) 460px, (max-width: 768px) 614px, (max-width: 992px) 793px, (max-width: 1200px) 960px, (min-width: 1200px) 1400px"
     content_html: "A hard working, Slovak ex-pat in Copenhagen. A local urbanite bike mechanic. <br>  Hear the tender story of Lina and Sebastian and the tragedy that lies beneath."
+
+

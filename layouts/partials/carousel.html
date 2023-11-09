@@ -7,7 +7,7 @@
           {{ range $index, $slide := .context.Site.Data.carousel.images }}
             <li id="c10_slide{{ add $index 1}}" style="min-width: calc(100%/{{$.context.Scratch.Get "items"}}); padding-bottom: {{ $.context.Scratch.Get "height" }}{{ $.context.Scratch.Get "unit" }};">
               <!-- TODO: replace this <img> tag with <picture>, add modern image formats to the yaml file, then reference those modern formats in the <picture> -->
-              <img src="{{ $slide.image }}" alt="" />
+              <img srcset="{{$slide.srcset}}" sizes="{{$slide.sizes}}" alt="" />
             <!-- <picture>
                 <source type="image/webp" srcset={{$slide.webp}}>
                 <source type="image/png" srcset={{$slide.image}}>
