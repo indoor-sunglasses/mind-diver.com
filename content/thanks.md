@@ -1,10 +1,12 @@
 ﻿---
 layout: plain
-title: Almost there!
+title: Thanks!
 ---
 
-We need to confirm your email address.
+You're all signed up for **Mind Diver's** Newsletter now!
 
-To complete the subscription process, please click the link in the email we just sent you.
+We'll send out newsletter emails from minddivergame@gmail.com, so look out for us!
 
-Also, make sure to check your **spam** folder!
+We don't email often, so if you want to follow along with development, follow our socials or Steam page!
+
+Let's gooooooo!
