@@ -4,7 +4,8 @@
         "Width": "100%",
         "Alt": "Mind Diver image",
         "Src": "images/md_logo.png",
-        "ImgSource": "images/md_logo.png",
-        "WebpSource": "images/md_logo.webp"
+        "ImgSource": "images/md_logo_224.png 224w, images/md_logo_576.png 300w, images/md_logo_460.png 460w, images/md_logo_614.png 614w, images/md_logo_793.png 793w, images/md_logo_960.png 960w, images/md_logo.png 1400w",
+        "WebpSource": "images/md_logo_224.webp 224w, images/md_logo_300.webp 300w, images/md_logo_460.webp 460w, images/md_logo_614.webp 614w, images/md_logo_793.webp 793w, images/md_logo_960.webp 960w, images/md_logo.webp 1400w",
+        "Sizes": "(max-width: 280px) 224px, (max-width: 375px) 300px, (max-width: 576px) 460px, (max-width: 768px) 614px, (max-width: 992px) 793px, (max-width: 1200px) 960px, (min-width: 1200px) 1400px"
     }
 } 
