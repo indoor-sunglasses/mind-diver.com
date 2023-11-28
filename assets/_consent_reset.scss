@@ -1,0 +1,26 @@
+.consent_reset {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    z-index: 200;
+    margin-top: 2%;
+
+    @media screen and (min-width: 1600px) {
+        margin-top: 15%;
+    }
+
+    @media screen and (min-width: 1200px) {
+        margin-top: 7em;
+    }
+
+    @media screen and (min-width: 796px) {
+        margin-top: 4em;
+    }
+}
+
+.consent_reset a {
+    color: lightblue;
+    font-size: 1em;
+}
