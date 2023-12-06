@@ -50,7 +50,7 @@
         consentTypes[{{$item.gtmKey}}] = "not set"; //set
         // consentTypes[{{$index}}]
     {{end}}
-    console.log(consentTypes);
+    // console.log(consentTypes);
     // alert(consentTypes)
 
     function createCookie(name,value,days) { // creates the cookie
@@ -75,7 +75,7 @@
             return arrayofConsentTypes;
         }
 
-        // update consent values
+        // oh no! something went wrong and now the function returns null
         return null;
     }
 
@@ -123,9 +123,7 @@
 
         elements.forEach(function(el) { //go through each input then do stuff
             // console.log(el);
-            // if(el.checked) consentValue = consentValue + el.name + ":"  + "granted ";
             if(el.checked) consentArray[el.name] = "granted "; //if it was checked, then consent was granted
-            // else consentValue = consentValue + el.name + ":" + "denied ";
             else consentArray[el.name] = "denied "; //if not checked, consent was denied
         });
         console.log("consentArray equals ");
@@ -141,6 +139,7 @@
         closeConsentOverlay();
     }
 
+    //just closes the overlay
     function closeConsentOverlay(){
         document.getElementById('consent-notice').style.display = 'none'; //hides the consent-notice
         document.getElementById('consent-overlay').classList.remove('active'); //removes the consent overlay class
@@ -204,13 +203,14 @@
         acceptSomeConsentScripts();
     });
 
-    document.getElementById("consent-overlay").addEventListener("click",function(e) {
+    //don't actually know what this part does
+    document.getElementById("consent-overlay").addEventListener("click",function(e) { 
         if (!document.querySelector("#consent-overlay > div").contains(e.target)){
             this.classList.toggle('active');
         }
     });
 
-
+    //short methof for getting the cookie we want
     function shortGetCookie(name) {
         const value = `; ${document.cookie}`;
         const parts = value.split(`; ${name}=`);
@@ -219,6 +219,7 @@
 
 </script>
 
+<!-- originally this but would then go and execute scripts that were defined in the .yaml file -->
 <!-- {{ range $index, $item := .Site.Data.consent.items }}
     {{ if $item.is_functional }}
         <script type="text/javascript" src="/js/{{ $item.script_file }}"></script>
