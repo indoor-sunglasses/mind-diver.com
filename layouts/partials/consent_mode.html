@@ -82,7 +82,7 @@
         if(arrayofConsentTypes != null){
             var parsedArray = JSON.parse(arrayofConsentTypes); // parses into a data object
             gtag('consent','update',parsedArray); // updates Google Tag Manager consent values
-            console.log("consent cookie found!");
+            // console.log("consent cookie found!");
             closeConsentOverlay();
             return arrayofConsentTypes;
         }
@@ -103,7 +103,7 @@
             deniedConsent[{{$item.gtmKey}}] = "denied";
             // consentTypes[{{$index}}]
         {{end}}
-        console.log(deniedConsent);
+        // console.log(deniedConsent);
         createCookie('consent-settings',JSON.stringify(deniedConsent),31);
         closeConsentOverlay();
         // acceptSomeConsentScripts(consentValue); //call the accept some scripts, passing consent value
@@ -118,7 +118,7 @@
             acceptedConsent[{{$item.gtmKey}}] = "granted";
             // consentTypes[{{$index}}]
         {{end}}
-        console.log(acceptedConsent);
+
         createCookie('consent-settings',JSON.stringify(acceptedConsent),31);
         closeConsentOverlay();
         // update consent values
@@ -138,13 +138,10 @@
             if(el.checked) consentArray[el.name] = "granted "; //if it was checked, then consent was granted
             else consentArray[el.name] = "denied "; //if not checked, consent was denied
         });
-        console.log("consentArray equals ");
-        console.log(consentArray);
+
 
         // document.getElementById("save-consent").dataset.consentvalue = consentValue;
         document.getElementById("save-consent").dataset.consentvalue = consentArray;
-        console.log("save-consent dataset thing");
-        console.log(document.getElementById("save-consent").dataset.consentvalue );
 
         createCookie('consent-settings',JSON.stringify(consentArray),31); //calls the creates cookie method
         gtag('consent','update',consentArray); // updates Google Tag Manager consent values 
