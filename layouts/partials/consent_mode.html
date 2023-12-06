@@ -1,0 +1,226 @@
+<style>
+    #consent-notice {padding: 1rem 1rem; display: none; text-align: center; position: fixed; bottom: 0; width: calc(100% - 2rem); background: #222; color: rgba(255,255,255,0.8);}
+    #consent-notice span {margin-right: 1rem;}
+    #consent-notice button {cursor: pointer; display: inline-block; width: auto;}
+    #consent-notice span a {color: inherit; text-decoration: underline; text-decoration-color: rgba(255,255,255,0.5);}
+    #consent-notice button.btn {margin-left: 0.5rem;}
+    #consent-notice button.btn.manage-consent {background: rgba(255,255,255,0.1); font-weight: normal;}
+    
+    #consent-overlay {position: fixed; left: 0; top: 0; width: 100%; height: 100vh; display: none; background: rgba(0,0,0,0.75); z-index: 999999; overflow: auto; cursor: pointer;}
+    #consent-overlay.active {display: flex;}
+    #consent-overlay > div {background: rgb(54, 54, 54); width: 100%; max-width: 30rem; padding: 1.75rem; margin: auto; cursor: initial;}
+    #consent-overlay > div > div {display: flex; align-items: flex-start; margin-bottom: 1rem;}
+    #consent-overlay > div > div:last-child {margin: 0;}
+    #consent-overlay h3 {padding-top: 0;}
+    #consent-overlay input {margin-top: 1.7rem;}
+    #consent-overlay label {display: block;}
+    #consent-overlay .btn {margin-right: 0.5rem;}
+    #consent-overlay button.btn.save-consent {background: rgba(0,0,0,0.6); font-weight: normal;}
+
+    @media (max-width: 767px) {
+        #consent-overlay > div {padding: 1.75rem 1rem;}
+        #consent-notice span {display: block; padding-top: 3px; margin-bottom: 1.5rem;}
+        #consent-notice button.btn {position: relative; bottom: 4px;}
+    }
+</style>
+<div id="consent-notice"><span>We would like to use <a class="manage-consent" href="#manage-consent">third party code</a> to improve the functionality of this website.</span><button class="btn manage-consent">Manage preferences</button><button class="btn deny-consent">Deny</button><button class="btn approve-consent">Allow</button></div>
+<div id="consent-overlay">
+    <div>
+        {{ range $index, $item := .Site.Data.consent.items }}
+            <div>
+                <input type="checkbox" id="{{$item.gtmKey}}" value="1" name="{{$item.gtmKey}}" {{ if $item.is_functional }}checked disabled{{ end }} />
+                <!-- <input type="checkbox" id="item{{ $index }}" value="1" name="item{{ $index }}" {{ if $item.is_functional }}checked disabled{{ end }} /> -->
+                <label for="item{{ $index }}">
+                    <h3>{{ $item.title }}</h3>
+                    <p>{{ $item.description }}</p>
+                </label>
+            </div>
+        {{ end }}
+        <div>
+            <button id="save-consent" class="btn save-consent" data-consentvalue="{{ range $index, $item := .Site.Data.consent.items }}{{ if $item.is_functional}}{{ else }}0{{ end }}{{ end }}">Save preferences</button>
+            <button class="btn approve-consent">Allow all</button>
+        </div>
+    </div>
+</div>
+<script>
+
+     const consentTypes = {};
+    //$index is the index in the loop, $item is the data object pulled in from the yaml file
+    {{ range $index, $item := where .Site.Data.consent.items "is_functional" false}} //range over each item in the consent.yaml file, and chekc "is funcitonal" is false
+        consentTypes[{{$item.gtmKey}}] = "not set"; //set
+        // consentTypes[{{$index}}]
+    {{end}}
+    console.log(consentTypes);
+    // alert(consentTypes)
+
+    function createCookie(name,value,days) { // creates the cookie
+        var expires = "";
+        if (days) {
+            var date = new Date();
+            date.setTime(date.getTime() + (days*24*60*60*1000));
+            expires = "; expires=" + date.toUTCString();
+        }
+        document.cookie = name + "=" + value + expires + "; path=/";
+    }
+
+    function readCookie(name) { // read the cookie
+
+        var arrayofConsentTypes = shortGetCookie("consent-settings"); //gets the "testCooke"
+        
+        if(arrayofConsentTypes != null){
+            var parsedArray = JSON.parse(arrayofConsentTypes); // parses into a data object
+            gtag('consent','update',parsedArray); // updates Google Tag Manager consent values
+            console.log("consent cookie found!");
+            closeConsentOverlay();
+            return arrayofConsentTypes;
+        }
+
+        // update consent values
+        return null;
+    }
+
+    function eraseCookie(name) { //deletes cookie by overwriting it with empty data
+        createCookie(name,"",-1);
+    }
+
+
+    function denyAllConsentScripts() {
+        deniedConsent = {};
+        {{ range $index, $item := where .Site.Data.consent.items "is_functional" false}} //range over each item in the consent.yaml file, and chekc "is funcitonal" is false
+            // arrayOfConsentTypes.ad_storage = "denied";
+            deniedConsent[{{$item.gtmKey}}] = "denied";
+            // consentTypes[{{$index}}]
+        {{end}}
+        console.log(deniedConsent);
+        createCookie('consent-settings',JSON.stringify(deniedConsent),31);
+        closeConsentOverlay();
+        // acceptSomeConsentScripts(consentValue); //call the accept some scripts, passing consent value
+        // update consent values
+        gtag('consent','update',deniedConsent); // updates Google Tag Manager consent values  
+    }
+
+    function acceptAllConsentScripts() {
+        acceptedConsent = {};
+        {{ range $index, $item := where .Site.Data.consent.items "is_functional" false}} //range over each item in the consent.yaml file, and chekc "is funcitonal" is false
+            // arrayOfConsentTypes.ad_storage = "denied";
+            acceptedConsent[{{$item.gtmKey}}] = "granted";
+            // consentTypes[{{$index}}]
+        {{end}}
+        console.log(acceptedConsent);
+        createCookie('consent-settings',JSON.stringify(acceptedConsent),31);
+        closeConsentOverlay();
+        // update consent values
+        gtag('consent','update',acceptedConsent); // updates Google Tag Manager consent values    
+    }
+
+
+    function acceptSomeConsentScripts() { 
+   
+        //gets the input checkboxes
+        var elements = document.querySelectorAll('#consent-overlay input:not([disabled])');
+
+        var consentArray= {}; //initialises an object for polulating with consent values
+
+        elements.forEach(function(el) { //go through each input then do stuff
+            // console.log(el);
+            // if(el.checked) consentValue = consentValue + el.name + ":"  + "granted ";
+            if(el.checked) consentArray[el.name] = "granted "; //if it was checked, then consent was granted
+            // else consentValue = consentValue + el.name + ":" + "denied ";
+            else consentArray[el.name] = "denied "; //if not checked, consent was denied
+        });
+        console.log("consentArray equals ");
+        console.log(consentArray);
+
+        // document.getElementById("save-consent").dataset.consentvalue = consentValue;
+        document.getElementById("save-consent").dataset.consentvalue = consentArray;
+        console.log("save-consent dataset thing");
+        console.log(document.getElementById("save-consent").dataset.consentvalue );
+
+        createCookie('consent-settings',JSON.stringify(consentArray),31); //calls the creates cookie method
+        gtag('consent','update',consentArray); // updates Google Tag Manager consent values 
+        closeConsentOverlay();
+    }
+
+    function closeConsentOverlay(){
+        document.getElementById('consent-notice').style.display = 'none'; //hides the consent-notice
+        document.getElementById('consent-overlay').classList.remove('active'); //removes the consent overlay class
+    }
+
+    // would originally then trigger javascripts defined in the .yaml file 
+    // function loadConsentScripts(consentValue) {
+    //     scripts.forEach(function(value,key){
+    //         //console.log('script'+key+' is set to ' +consentValue[key]+' and is file '+value);
+    //         if(consentValue[key]=="1") {
+    //             var s = document.createElement('script');
+    //             s.type = 'text/javascript';
+    //             s.src = value;
+    //             document.body.appendChild(s);
+    //         }
+    //     });
+    // }
+
+    var elements = document.querySelectorAll('#consent-overlay input:not([disabled])');
+    elements.forEach(function(el) {
+        el.checked = false;
+    });
+
+    // if cookie already exists, read the consent-settings, otherwise add the consent-notice banner
+    if(readCookie('consent-settings')) {
+
+        // console.log("cookie found, closing overlay")
+        closeConsentOverlay();
+    } else {
+        document.getElementById('consent-notice').style.display = 'block';
+    }
+
+    //triggers the manager consent-overlay to turn on / display 
+    var elements = document.querySelectorAll('.manage-consent');
+    elements.forEach(function(el) {
+        el.addEventListener("click",function() {
+            document.getElementById('consent-overlay').classList.toggle('active');
+        });
+    });
+
+    // deny all from banner
+    var elements = document.querySelectorAll('.deny-consent');
+    elements.forEach(function(el) {
+        //if the user clicks the "deny" button from the banner, do something
+        el.addEventListener("click",function() {
+            denyAllConsentScripts();
+        });
+    });
+
+    //accept all from banner
+    var elements = document.querySelectorAll('.approve-consent');
+    elements.forEach(function(el) {
+        //if the user clicks the "allow" button from the banner, do something
+        el.addEventListener("click",function() {
+            acceptAllConsentScripts();
+        });
+    });
+
+    document.getElementById("save-consent").addEventListener("click",function() { 
+        // On clicking the "save preferences" button on the consent pop-up, do some things
+        acceptSomeConsentScripts();
+    });
+
+    document.getElementById("consent-overlay").addEventListener("click",function(e) {
+        if (!document.querySelector("#consent-overlay > div").contains(e.target)){
+            this.classList.toggle('active');
+        }
+    });
+
+
+    function shortGetCookie(name) {
+        const value = `; ${document.cookie}`;
+        const parts = value.split(`; ${name}=`);
+        if (parts.length === 2) return parts.pop().split(';').shift();
+    }
+
+</script>
+
+<!-- {{ range $index, $item := .Site.Data.consent.items }}
+    {{ if $item.is_functional }}
+        <script type="text/javascript" src="/js/{{ $item.script_file }}"></script>
+    {{ end }}
+{{ end }} -->

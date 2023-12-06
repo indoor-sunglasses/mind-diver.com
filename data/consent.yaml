@@ -1,5 +1,23 @@
 items:
-  - title: Google Anaytics (functional)
-    description: This code gives us insight into the number of people that visit our website, where they are from and what they are clicking on. We follow the guidelines of the Dutch Government, which describe how to use Google Analytics without requiring explicit consent.
+  - title: Ad storage
+    description: We use advertsing to find new people that might be interested in Mind Diver. This cookie enables us to connect ads and analytics together, to learn more about who likes Mind Diver, based on them coming to the site from our advertising.
     is_functional: false
-    script_file: ga.js
+    gtmKey: "ad_storage"
+  - title: Ad user data
+    is_functional: false
+    description: We use advertsing to find new people that might be interested in Mind Diver. That means we collect data about conversions and activity on the site and send that back to Google and other ad providers for aggregation and optimising advertisement performance. That means only people that would like to play Mind Diver get shown ads, rather than everyone and anyone in existence.
+    gtmKey: "ad_user_data"
+  - title: Ad personalization
+    description: Sets a cookie for personalized advertising. This means we may show you ads later, if you came to our page and interacted with it (i.e., you showed interest in something, we don't really want to advertise you if you are not interested though!). 
+    is_functional: false
+    gtmKey: "ad_personalization"  
+  - title: Analytics
+    description: We use analytics to learn more about who might like Mind Diver. This cookie lets us learn more about you, so that your data can be aggregeted together with other's to give insights on who our plays might well be. 
+    is_functional: false
+    gtmKey: "analytics_storage"
+  - title: functionality storage
+    description: enables a cookie to help make the site more functional for you, for example with language settings (once we eventually get multiple languages set up)
+    is_functional: true
+    gtmKey: "functionality_storage"
+
+
