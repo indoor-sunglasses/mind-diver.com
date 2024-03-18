@@ -1,11 +1,27 @@
-
 .fixed-image-diver {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: -1;
-    max-width: 80%;
-    max-height: 80vh;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -40%);
+  z-index: -1;
+  max-width: 80%;
+  max-height: 80vh;
+  filter: drop-shadow(1px 1px 4px #00000066);
+  animation: dive-loop 20s forwards cubic-bezier(0, 0, 0.1, 1);
+  animation-delay: 0.75s;
+  opacity: 0;
+}
+
+@keyframes dive-loop {
+  0% {
+    opacity: 0;
+    transform: translate3d(-50%, -40%, 0);
   }
-  
+  5% {
+    opacity: 1;
+  }
+  100% {
+    transform: translate3d(-50%, -20%, 0);
+    opacity: 1;
+  }
+}
