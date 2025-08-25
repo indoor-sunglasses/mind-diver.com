@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 100 100" role="img" aria-label="PlayStation">
+  <rect x="2" y="2" width="96" height="96" rx="16" fill="#003087"/>
+  <path d="M30 70 L70 50 L70 70 L30 90 Z" fill="#1f6feb" opacity="0.8"/>
+  <g font-family="Segoe UI, Roboto, Helvetica, Arial, sans-serif" font-size="14" text-anchor="middle" fill="#fff">
+    <text x="50" y="94">PlayStation</text>
+  </g>
+</svg>

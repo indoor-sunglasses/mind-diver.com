@@ -1,0 +1,14 @@
+steam:
+  name: Steam (PC)
+  icon: "/img/platforms/steam.svg"
+  url_param: steam_url
+
+switch:
+  name: Nintendo Switch
+  icon: "/img/platforms/switch.svg"
+  url_param: switch_url
+
+playstation:
+  name: PlayStation
+  icon: "/img/platforms/playstation.svg"
+  url_param: playstation_url

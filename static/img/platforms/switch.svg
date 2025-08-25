@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 100 100" role="img" aria-label="Nintendo Switch">
+  <rect x="2" y="2" width="96" height="96" rx="20" fill="#e60012"/>
+  <circle cx="32" cy="50" r="14" fill="#fff"/>
+  <rect x="54" y="18" width="20" height="64" rx="10" fill="#fff"/>
+  <g font-family="Segoe UI, Roboto, Helvetica, Arial, sans-serif" font-size="14" text-anchor="middle" fill="#fff">
+    <text x="50" y="94">Switch</text>
+  </g>
+</svg>

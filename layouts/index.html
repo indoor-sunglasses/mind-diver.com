@@ -1,20 +1,226 @@
-﻿{{ define "body" }}
-{{ partial "fixed_image_md-logo.html" .}}
-{{ partial "fixed_image_diver.html" .}}
-{{ partial "parallax.html" .}}
+{{ define "body" }}
+  {{ $bg := or .Params.background "/img/bg/Page Background.png" }}
+  {{ $bgMobile := or .Params.background_mobile $bg }}
+  {{ $overlay := or .Params.bg_overlay 0.35 }}
+  {{ $surface := or .Params.surface_bg "#0b0b0c" }}
+  {{ $surfaceBorder := or .Params.surface_border "rgba(255,255,255,0.10)" }}
+  {{ $heroOffset := or .Params.hero_offset "60vh" }}
+  {{ $heroOffsetMobile := or .Params.hero_offset_mobile "58vh" }}
 
-<main class="landing">
-  {{ partial "game_description.html"}}
-  {{ partial "awards.html" . }}
-  {{ partial "screenshots.html" (dict)}}
-  {{ partial "carousel.html" (dict "context" . "items" "1" "height" "60" "unit" "%" "duration" "7000") }}
-  {{ partial "buyMe.html" .}}
-  {{ partial "trailer.html" (dict "VideoUrl" "https://www.youtube.com/embed/rizJVhkrVXs") }}
-  {{ partial "socials.html" .}}
-  {{ partial "newsletter.html" .}}
-  {{ partial "copyright-bubble.html" .}}
-  <div class="content">
-    {{ .Content }}
+  {{ $titleImg := .Params.title_image }}
+  {{ $heroImg := or .Params.hero_image .Params.keyart }}
+
+  {{ $titleTop := or .Params.title_top "6vh" }}
+  {{ $titleMaxH := or .Params.title_height "18vh" }}
+  {{ $heroTop := or .Params.hero_top "28vh" }}
+  {{ $heroMaxW := or .Params.hero_width "min(90vw, 56rem)" }}
+
+  {{ $steamID := or .Params.steam_appid 2259330 }}
+  {{ $steamURL := or .Params.steam_pc_url "https://store.steampowered.com/app/2259330/Mind_Diver/" }}
+
+  <style>
+    :root{--bg:#0b0b0c;--fg:#C5EFF4;--muted:#c9d1d9;--accent:#7bdcff;--maxw:56rem;--gap:2rem}
+    html,body{height:100%}
+    body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,"Apple Color Emoji","Segoe UI Emoji";color:var(--fg);line-height:1.6;background-color:var(--bg);position:relative}
+    body::before{content:"";position:fixed;inset:0;z-index:0;background:linear-gradient(rgba(0,0,0,{{$overlay}}),rgba(0,0,0,{{$overlay}})),url('{{ $bg | relURL }}');background-size:cover;background-position:center;background-repeat:no-repeat;pointer-events:none}
+    @media (max-width:800px){body::before{background:linear-gradient(rgba(0,0,0,{{$overlay}}),rgba(0,0,0,{{$overlay}})),url('{{ $bgMobile | relURL }}');background-size:cover;background-position:center}}
+
+    .hero-fixed{position:fixed;top:0;left:50%;transform:translateX(-50%);width:100%;max-width:100vw;z-index:2;pointer-events:none;text-align:center}
+    .hero-fixed .title-logo{margin-top:{{$titleTop}};max-height:{{$titleMaxH}};width:auto;height:auto;display:block;margin-left:auto;margin-right:auto}
+    .hero-fixed .hero-image{margin-top:{{$heroTop}};max-width:{{$heroMaxW}};width:auto;height:auto;object-fit:contain;border-radius:16px;display:block;margin-left:auto;margin-right:auto}
+
+    .md-landing{min-height:100dvh;display:grid;place-items:start center;padding:0 1rem 10dvh;position:relative;z-index:3}
+    .surface{width:100%;max-width:var(--maxw);margin:{{$heroOffset}} auto 0;background:{{$surface}};border:1px solid {{$surfaceBorder}};border-radius:18px;padding:clamp(16px,3vw,28px);box-shadow:0 10px 30px rgba(0,0,0,.35)}
+    @media (max-width:800px){.surface{margin-top:{{$heroOffsetMobile}}}}
+    .section{width:100%;margin:0 auto var(--gap);text-align:center}
+
+    .video-frame{position:relative;width:100%;aspect-ratio:16/9;margin:0 auto;border-radius:12px;overflow:hidden}
+    .video-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+
+    .prose{margin:0 auto;max-width:46rem}
+    .prose p{margin:0 0 1rem}
+
+    .platforms-text .platform-links{display:flex;gap:.5rem;flex-wrap:wrap;justify-content:center;align-items:baseline}
+    .platforms-text .label{color:var(--muted)}
+    .platform-link{position:relative;text-decoration:none;color:var(--fg);padding-bottom:2px}
+    .platform-link::after{content:"";position:absolute;left:0;right:0;bottom:0;height:2px;background:var(--accent);transform:scaleX(0);transform-origin:left;transition:transform .18s ease}
+    .platform-link:hover::after{transform:scaleX(1)}
+    .platform-link.disabled{opacity:.5;pointer-events:none}
+
+    .steam-widget{max-width:646px;margin:0 auto;border-radius:12px;overflow:hidden}
+    .steam-widget iframe{width:100%;height:var(--steam-h,190px);border:0;display:block}
+
+    .gif-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem;list-style:none;padding:0;margin:0}
+    .gif-grid li{margin:0}
+    .gif-grid img{width:100%;height:100%;object-fit:cover;border-radius:12px;display:block}
+    @media (max-width:680px){.gif-grid{grid-template-columns:1fr}}
+
+    .carousel{position:relative;max-width:100%;margin:0 auto var(--gap)}
+    .carousel-viewport{position:relative;overflow:hidden;border-radius:12px;aspect-ratio:16/9;background:transparent}
+    .carousel-slide{position:absolute;inset:0;opacity:0;transition:opacity .45s ease}
+    .carousel-slide[aria-current="true"]{opacity:1;z-index:1}
+    .carousel-slide img{width:100%;height:100%;object-fit:cover;display:block}
+    .carousel-nav{display:flex;gap:.5rem;justify-content:center;margin-top:.6rem}
+    .carousel-dot{width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,.35);border:0;cursor:pointer}
+    .carousel-dot[aria-current="true"]{background:#fff}
+    .carousel-arrow{position:absolute;top:50%;transform:translateY(-50%);background:transparent;border:0;color:rgba(255,255,255,.95);font-size:28px;line-height:1;padding:8px 10px;cursor:pointer;opacity:0;text-shadow:0 1px 10px rgba(0,0,0,.6);z-index:2}
+    .carousel:hover .carousel-arrow{opacity:1}
+        /* Desktop: arrows offset outside the frame */
+    .carousel-arrow.prev{ left:-380px !important; }
+    .carousel-arrow.next{ right:-380px !important; }
+
+    /* Mobile/tablet: keep arrows inside so they’re tappable */
+    @media (max-width: 900px){
+      .carousel-arrow.prev{ left:12px !important; }
+      .carousel-arrow.next{ right:12px !important; }
+}
+
+    .carousel-arrow:hover{color:#fff}
+    @media (hover:none){.carousel-arrow{opacity:1}}
+
+    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+    /* General: keep sensible caps (desktop + up) */
+.hero-fixed .title-logo{
+  max-height: 18vh;   /* from your params; acts as an upper bound */
+}
+.hero-fixed .hero-image{
+  max-width: min(90vw, 56rem);
+  height: auto;
+  object-fit: contain;
+}
+
+/* Mobile: reduce top offsets and cap heights so nothing overflows */
+@media (max-width: 800px){
+  .hero-fixed .title-logo{
+    margin-top: 4vh !important;         /* was 6vh; gives more room */
+    max-height: 12vh !important;        /* smaller cap on phones */
+    max-width: 88vw !important;
+  }
+  .hero-fixed .hero-image{
+    margin-top: 2vh !important;         /* replaces big vh spacing */
+    max-width: 94vw !important;
+    max-height: 42vh !important;        /* keep it visible above the fold */
+  }
+
+  /* Start the solid panel a bit higher on phones (optional tweak) */
+  .surface{
+    margin-top: 56vh !important;        /* was 58–60vh; adjust if needed */
+  }
+}
+
+  </style>
+
+
+  <div class="hero-fixed" aria-hidden="false">
+    {{ with $titleImg }}<img src="{{ . | relURL }}" alt="{{ $.Title }} logo" class="title-logo" loading="eager" fetchpriority="high">{{ end }}
+    {{ with $heroImg }}<img src="{{ . | relURL }}" alt="Feature image" class="hero-image" loading="lazy">{{ end }}
+  </div>
+
+  <main class="md-landing" aria-label="Mind Diver landing">
+    <div class="surface">
+      {{ with .Params.trailer_url }}
+        {{- $raw := trim . " \t\r\n" -}}
+        {{- $id := replaceRE `(?i).*?(?:v=|embed/|shorts/|youtu\.be/)?([A-Za-z0-9_-]{11}).*` `$1` $raw -}}
+        <section class="section trailer">
+          <div class="video-frame">
+            <iframe src="https://www.youtube-nocookie.com/embed/{{ $id }}?rel=0&modestbranding=1&playsinline=1" title="Mind Diver Trailer" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+          </div>
+        </section>
+      {{ end }}
+
+      {{ with .Params.description }}
+        <section class="section description"><div class="prose">{{ . | markdownify }}</div></section>
+      {{ end }}
+
+      <section class="section platforms-text">
+        <div class="platform-links" aria-label="Available platforms">
+          <span class="label">Available on:</span>
+          <a class="platform-link" href="{{ $steamURL }}" target="_blank" rel="noopener">PC</a>
+          <!-- , <span class="platform-link disabled">Switch</span> -->
+          <!-- , <span class="platform-link disabled">PlayStation</span> -->
+        </div>
+      </section>
+
+      {{ with $steamID }}
+        <section class="section">
+          <div class="steam-widget">
+            <iframe src="https://store.steampowered.com/widget/{{ . }}/" loading="lazy" frameborder="0" title="Steam widget"></iframe>
+          </div>
+        </section>
+      {{ end }}
+
+      {{ $gifs := .Params.gifs }}
+      {{ if not $gifs }}
+        {{ $gifs = slice (dict "src" "/img/gallery/gif_1.gif" "alt" "Gameplay GIF 1") (dict "src" "/img/gallery/gif_2.gif" "alt" "Gameplay GIF 2") (dict "src" "/img/gallery/gif_3.gif" "alt" "Gameplay GIF 3") (dict "src" "/img/gallery/gif_4.gif" "alt" "Gameplay GIF 4") }}
+      {{ end }}
+      <section class="section gifs" aria-label="GIFs">
+        <ul class="gif-grid">
+          {{ range $gifs }}
+            <li><img src="{{ .src }}" alt="{{ or .alt "Gameplay GIF" }}" loading="lazy"></li>
+          {{ end }}
+        </ul>
+      </section>
+
+      {{ $carousel := .Params.carousel }}
+      {{ if not $carousel }}
+        {{ $dir := "static/img/gallery" }}
+        {{ $imgs := slice }}
+        {{ range (readDir $dir) }}
+          {{ $n := .Name }}
+          {{ if or (findRE "\\.(?i)jpe?g$" $n) (or (findRE "\\.(?i)png$" $n) (findRE "\\.(?i)webp$" $n)) }}
+            {{ $imgs = $imgs | append (printf "/img/gallery/%s" $n) }}
+          {{ end }}
+        {{ end }}
+        {{ $carousel = $imgs }}
+      {{ end }}
+      {{ if gt (len $carousel) 0 }}
+        <section class="section carousel-wrap" aria-label="Screenshots">
+          <div class="carousel" data-duration="{{ or $.Params.carousel_duration 6000 }}">
+            <div class="carousel-viewport">
+              {{ range $carousel }}
+                <figure class="carousel-slide"><img src="{{ . }}" alt="" loading="lazy"></figure>
+              {{ end }}
+              <button class="carousel-arrow prev" aria-label="Previous"><span aria-hidden="true">‹</span><span class="sr-only">Previous</span></button>
+              <button class="carousel-arrow next" aria-label="Next"><span aria-hidden="true">›</span><span class="sr-only">Next</span></button>
+            </div>
+            <div class="carousel-nav">
+              {{ range $i, $_ := $carousel }}
+                <button class="carousel-dot" aria-label="Go to slide {{ add $i 1 }}" data-index="{{ $i }}"></button>
+              {{ end }}
+            </div>
+          </div>
+        </section>
+      {{ end }}
+
+      {{ with .Params.presskit_url }}
+        <section class="section presskit">
+          <a class="platform-link" href="{{ . }}" target="_blank" rel="noopener">Press kit</a>
+        </section>
+      {{ end }}
     </div>
   </main>
+
+  <script>
+  (function(){
+    const carousels=document.querySelectorAll('.carousel');
+    carousels.forEach(function(c){
+      const slides=[...c.querySelectorAll('.carousel-slide')];
+      const dots=[...c.querySelectorAll('.carousel-dot')];
+      const prev=c.querySelector('.carousel-arrow.prev');
+      const next=c.querySelector('.carousel-arrow.next');
+      let i=0,timer,duration=parseInt(c.dataset.duration||6000,10);
+      function setCurrent(idx){slides.forEach((s,si)=>s.setAttribute('aria-current',si===idx?'true':'false'));dots.forEach((d,di)=>d.setAttribute('aria-current',di===idx?'true':'false'))}
+      function go(n){i=(n+slides.length)%slides.length;setCurrent(i)}
+      function play(){stop();timer=setInterval(()=>go(i+1),duration)}
+      function stop(){if(timer)clearInterval(timer)}
+      dots.forEach((d,di)=>d.addEventListener('click',()=>{go(di);play()}));
+      if(prev)prev.addEventListener('click',()=>{go(i-1);play()});
+      if(next)next.addEventListener('click',()=>{go(i+1);play()});
+      c.addEventListener('pointerenter',stop);
+      c.addEventListener('pointerleave',play);
+      setCurrent(0);play();
+    });
+  })();
+  </script>
 {{ end }}
+

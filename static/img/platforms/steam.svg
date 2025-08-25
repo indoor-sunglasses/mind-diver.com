@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 100 100" role="img" aria-label="Steam">
+  <circle cx="50" cy="50" r="48" fill="#1b2838"/>
+  <circle cx="50" cy="50" r="28" fill="#2a475e"/>
+  <circle cx="50" cy="50" r="12" fill="#c7d5e0"/>
+  <g font-family="Segoe UI, Roboto, Helvetica, Arial, sans-serif" font-size="16" text-anchor="middle" fill="#c7d5e0">
+    <text x="50" y="92">Steam</text>
+  </g>
+</svg>
