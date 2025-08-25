@@ -62,30 +62,30 @@
 
   </script>
 
-<!-- Google Tag Manager -->
+<!-- Google Tag Manager 
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
   new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
   j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
   })(window,document,'script','dataLayer','GTM-W3M29RJT');
-</script>
+</script> -->
   <!-- End Google Tag Manager -->
 
   </head>
   <body>
-    <!-- Google Tag Manager (noscript) -->
+    <!-- Google Tag Manager (noscript) 
       <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-W3M29RJT"
-        height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+        height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript> -->
     <!-- End Google Tag Manager (noscript) -->
     {{ block "header" . }}
     {{ end }}
     {{ block "body" . }}
     {{ end }}
-    {{ partial "consent_mode.html" .}}
+    <!-- {{ partial "consent_mode.html" .}} -->
     {{ block "footer" . }}
     {{ end }}
     {{ block "js" . }}
     {{ end }}
-    {{ partial "consent_reset.html" .}}
+    <!-- {{ partial "consent_reset.html" .}} -->
   </body>
 </html>
