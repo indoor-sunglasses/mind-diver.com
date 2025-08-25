@@ -25,6 +25,8 @@
     body::before{content:"";position:fixed;inset:0;z-index:0;background:linear-gradient(rgba(0,0,0,{{$overlay}}),rgba(0,0,0,{{$overlay}})),url('{{ $bg | relURL }}');background-size:cover;background-position:center;background-repeat:no-repeat;pointer-events:none}
     @media (max-width:800px){body::before{background:linear-gradient(rgba(0,0,0,{{$overlay}}),rgba(0,0,0,{{$overlay}})),url('{{ $bgMobile | relURL }}');background-size:cover;background-position:center}}
 
+    *, *::before, *::after { box-sizing: border-box; }
+
     .hero-fixed{position:fixed;top:0;left:50%;transform:translateX(-50%);width:100%;max-width:100vw;z-index:2;pointer-events:none;text-align:center}
     .hero-fixed .title-logo{margin-top:{{$titleTop}};max-height:{{$titleMaxH}};width:auto;height:auto;display:block;margin-left:auto;margin-right:auto}
     .hero-fixed .hero-image{margin-top:{{$heroTop}};max-width:{{$heroMaxW}};width:auto;height:auto;object-fit:contain;border-radius:16px;display:block;margin-left:auto;margin-right:auto}
@@ -59,20 +61,19 @@
     .carousel-viewport{position:relative;overflow:hidden;border-radius:12px;aspect-ratio:16/9;background:transparent}
     .carousel-slide{position:absolute;inset:0;opacity:0;transition:opacity .45s ease}
     .carousel-slide[aria-current="true"]{opacity:1;z-index:1}
-    .carousel-slide img{width:100%;height:100%;object-fit:cover;display:block}
+    .carousel-slide img{width:100%;height:100%;border-radius:12px;object-fit:cover;display:block}
     .carousel-nav{display:flex;gap:.5rem;justify-content:center;margin-top:.6rem}
     .carousel-dot{width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,.35);border:0;cursor:pointer}
     .carousel-dot[aria-current="true"]{background:#fff}
     .carousel-arrow{position:absolute;top:50%;transform:translateY(-50%);background:transparent;border:0;color:rgba(255,255,255,.95);font-size:28px;line-height:1;padding:8px 10px;cursor:pointer;opacity:0;text-shadow:0 1px 10px rgba(0,0,0,.6);z-index:2}
     .carousel:hover .carousel-arrow{opacity:1}
-        /* Desktop: arrows offset outside the frame */
-    .carousel-arrow.prev{ left:-380px !important; }
-    .carousel-arrow.next{ right:-380px !important; }
 
-    /* Mobile/tablet: keep arrows inside so they’re tappable */
+    .carousel-arrow.prev{ left:-360px !important; }
+    .carousel-arrow.next{ right:-360px !important; }
+
     @media (max-width: 900px){
-      .carousel-arrow.prev{ left:12px !important; }
-      .carousel-arrow.next{ right:12px !important; }
+      .carousel-arrow.prev{ left:-210px !important; }
+      .carousel-arrow.next{ right:-210px !important; }
 }
 
     .carousel-arrow:hover{color:#fff}
