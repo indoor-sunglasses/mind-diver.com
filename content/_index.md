@@ -1,6 +1,8 @@
 ---
 title_image: "/img/titles/md_logo.webp"
 hero_image: "/img/titles/md_diver.png"
+company_logo_src: "/img/titles/InSunLogoText.png"
+company_logo_alt: "Indoor Sunglasses"
 
 title_top: "6vh"
 title_height: "18vh"
@@ -18,9 +20,9 @@ bg_overlay: 0.35
 trailer_url: "https://www.youtube.com/watch?v=3slLnnozOoM"
 
 description: >-
-  Investigate a broken mind to unravel a twisted case. Deduce the truth.
-  <br>Restore lost memories. Listen to private conversations.
-  <br>Draw your own conclusions.
+  Investigate a broken mind to unravel a twisted case. 
+  <br>Deduce the truth. Restore lost memories. 
+  <br>Listen to private conversations. Draw your own conclusions.
   <br><strong>Mind Diver</strong> is a murder mystery, where the victim is love.
 
 steam_appid: 2259330
@@ -31,20 +33,26 @@ gifs:
   - { src: "/img/gallery/gif_1.gif", alt: "Gameplay GIF 1" }
   - { src: "/img/gallery/gif_2.gif", alt: "Gameplay GIF 2" }
   - { src: "/img/gallery/gif_3.gif", alt: "Gameplay GIF 3" }
-  - { src: "/img/gallery/gif_4.gif", alt: "Gameplay GIF 4" }
+  - { src: "/img/gallery/gif_4_new.gif", alt: "Gameplay GIF 4" }
 
 carousel:
-  - "/img/gallery/01MD.png"
-  - "/img/gallery/02MD.png"
-  - "/img/gallery/03MD.png"
-  - "/img/gallery/04MD.png"
-  - "/img/gallery/05MD.png"
-  - "/img/gallery/06MD.png"
-  - "/img/gallery/07MD.png"
-  - "/img/gallery/08MD.png"
-  - "/img/gallery/09MD.png"
-  - "/img/gallery/010MD.png"
-  - "/img/gallery/011MD.png"
-  - "/img/gallery/012MD.png"
+  - "/img/gallery/01MD_.png"
+  - "/img/gallery/02MD_.png"
+  - "/img/gallery/03MD_.png"
+  - "/img/gallery/04MD_.png"
+  - "/img/gallery/05MD_.png"
+  - "/img/gallery/06MD_.png"
+  - "/img/gallery/07MD_.png"
+  - "/img/gallery/08MD_.png"
+  - "/img/gallery/09MD_.png"
+  - "/img/gallery/010MD_.png"
+  - "/img/gallery/011MD_.png"
+  - "/img/gallery/012MD_.png"
+  - "/img/gallery/013MD_.png"
+  - "/img/gallery/014MD_.png"
+  - "/img/gallery/015MD_.png"
+  - "/img/gallery/016MD_.png"
+  - "/img/gallery/017MD_.png"
+  - "/img/gallery/018MD_.png"
 carousel_duration: 7000
 ---

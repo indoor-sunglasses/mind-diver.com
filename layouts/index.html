@@ -109,9 +109,90 @@
   }
 }
 
+.presskit{ text-align:center }
+.company-logo{ margin-top:.75rem; display:flex; justify-content:center }
+.company-logo img{
+  max-width: var(--company-logo-w, 140px);
+  width: 100%;
+  height: auto;
+  display: block;
+  opacity: .95;
+}
+
+/* ensure the badge has room inside the panel */
+.surface{ position: relative; padding-bottom: clamp(24px, 3vw, 32px) }
+
+/* bottom-left inside the front layer */
+.copyright-in-surface{
+  position: absolute;
+  left: clamp(12px, 2vw, 20px);
+  bottom: clamp(8px, 2vw, 16px);
+  font-size: 12px;
+  line-height: 1.3;
+  color: var(--muted);
+  opacity: .8;
+  pointer-events: none;
+  max-width: calc(100% - 2*clamp(12px,2vw,20px));
+}
+@media (max-width:480px){
+  .copyright-in-surface{ font-size: 11px }
+}
+
+.surface{ position: relative; padding-bottom: clamp(56px, 8vh, 96px); }
+
+.accolades{
+  position: absolute;
+  left: clamp(12px, 2vw, 20px);
+  right: clamp(12px, 2vw, 20px);
+  bottom: calc(8px + env(safe-area-inset-bottom));
+  z-index: 4;
+}
+
+
+.accolades,
+.accolades > .accolades-track{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;           
+  margin-inline: auto;
+  overflow: visible;         
+  white-space: normal;
+  -webkit-mask-image: none;
+  mask-image: none;
+}
+
+:root { --acc-h: 64px; }    
+
+.acc-logo{
+  height: var(--acc-h);
+  width: auto;
+  display: block;
+  flex: 0 0 auto;    
+  filter: grayscale(100%) contrast(1.1);
+  opacity: .7;
+}
+
+@media (max-width: 680px){
+  :root { --acc-h: 32px; }   
+}
+
+:root { --acc-bottom: clamp(24px, 3vh, 48px); }  
+
+.surface{
+  padding-bottom: calc(var(--acc-bottom) + var(--acc-h, 22px) + 16px);
+}
+
+.accolades{
+  bottom: calc(var(--acc-bottom) + env(safe-area-inset-bottom));
+}
+
+
+
+
   </style>
-
-
+  
   <div class="hero-fixed" aria-hidden="false">
     {{ with $titleImg }}<img src="{{ . | relURL }}" alt="{{ $.Title }} logo" class="title-logo" loading="eager" fetchpriority="high">{{ end }}
     {{ with $heroImg }}<img src="{{ . | relURL }}" alt="Feature image" class="hero-image" loading="lazy">{{ end }}
@@ -193,12 +274,37 @@
         </section>
       {{ end }}
 
-      {{ with .Params.presskit_url }}
-        <section class="section presskit">
-          <a class="platform-link" href="{{ . }}" target="_blank" rel="noopener">Press kit</a>
-        </section>
+      <section class="section presskit">
+        <a class="platform-link" href="{{ .Params.presskit_url }}" target="_blank" rel="noopener">Press kit</a>
+
+
+<div class="accolades">
+  <img class="acc-logo" src="/img/accolades/award_IGFStudent.png" alt="IGF Award">
+  <img class="acc-logo" src="/img/accolades/award_Amaze.png" alt="Amaze Award">
+  <img class="acc-logo" src="/img/accolades/award_GDWC.png" alt="GDWC Award">
+</div>
+
+          {{ with .Params.accolade_logos }}
+    <div class="accolades-track">
+      {{ range . }}
+        <img class="acc-logo" src="{{ . | relURL }}" alt="" loading="lazy" decoding="async">
       {{ end }}
     </div>
+  {{ end }}
+</div>
+
+<div class="bottom-bar" role="contentinfo">
+          {{ with .Params.company_logo_src }}
+          <div class="company-logo">
+            <img src="{{ . | relURL }}" alt="{{ or $.Params.company_logo_alt "Indoor Sunglasses" }}" loading="lazy">
+          </div>
+        {{ end }}
+  <small class="copy">
+    © Indoor Sunglasses ApS. All Rights Reserved. Licensed to and published by Active Gaming Media Inc.
+  </small>
+
+</section>
+
   </main>
 
   <script>
