@@ -27,7 +27,7 @@ description: >-
 
 steam_appid: 2259330
 steam_pc_url: "https://store.steampowered.com/app/2259330/Mind_Diver/"
-presskit_url: "https://playism.com/en/game/minddiver"
+presskit_url: "https://drive.google.com/drive/folders/1dFEm5ze3hg0AW5TTphNUw0q5e2WJbJGM"
 
 gifs:
   - { src: "/img/gallery/gif_1.gif", alt: "Gameplay GIF 1" }
